@@ -33,7 +33,8 @@
       if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
         try {
           await auth0.handleRedirectCallback();
-          window.history.replaceState({}, document.title, "/2fa/2FA.HTML");
+            window.history.replaceState({}, document.title, "/");
+
         } catch (err) {
           console.error('Erro no callback:', err);
         }
