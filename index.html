@@ -33,7 +33,7 @@
       if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
         try {
           await auth0.handleRedirectCallback();
-            window.history.replaceState({}, document.title, "/");
+          window.history.replaceState({}, document.title, "/2fa/2FA.HTML");
 
         } catch (err) {
           console.error('Erro no callback:', err);
@@ -57,13 +57,13 @@
 
     loginBtn.addEventListener('click', () => {
       auth0.loginWithRedirect({
-        redirect_uri: 'https://devpedroxz.github.io/auth0.github.io/'
+        redirect_uri: 'https://devpedroxz.github.io/auth0.github.io/2fa/2FA.HTML'
       });
     });
 
     logoutBtn.addEventListener('click', () => {
       auth0.logout({
-        returnTo: 'https://devpedroxz.github.io/auth0.github.io/'
+        returnTo: 'https://devpedroxz.github.io/auth0.github.io/2fa/2FA.HTML'
 
       });
     });
