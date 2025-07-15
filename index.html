@@ -56,13 +56,14 @@
 
     loginBtn.addEventListener('click', () => {
       auth0.loginWithRedirect({
-        redirect_uri: 'https://devpedroxz.github.io/auth0.github.io/2fa/2FA.HTML'
+        redirect_uri: 'https://devpedroxz.github.io/auth0.github.io/'
       });
     });
 
     logoutBtn.addEventListener('click', () => {
       auth0.logout({
-        returnTo: 'https://devpedroxz.github.io/auth0.github.io/2fa/2FA.HTML'
+        returnTo: 'https://devpedroxz.github.io/auth0.github.io/'
+
       });
     });
 
