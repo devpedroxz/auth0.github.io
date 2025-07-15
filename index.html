@@ -26,15 +26,14 @@
       auth0 = await createAuth0Client({
         domain: config.domain,
         client_id: config.client_id,
-        cacheLocation: 'localstorage', // opcional, ajuda a manter login após refresh
-        useRefreshTokens: true         // opcional, evita expirar rápido o token
+        cacheLocation: 'localstorage',
+        useRefreshTokens: true
       });
 
-      // Verifica se estamos voltando do redirect após login
       if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
         try {
           await auth0.handleRedirectCallback();
-          window.history.replaceState({}, document.title, "/2fa/2FA.HTML"); // limpa query params da URL
+          window.history.replaceState({}, document.title, "/2fa/2FA.HTML");
         } catch (err) {
           console.error('Erro no callback:', err);
         }
@@ -57,13 +56,13 @@
 
     loginBtn.addEventListener('click', () => {
       auth0.loginWithRedirect({
-        redirect_uri: window.location.origin + '/2fa/2FA.HTML'
+        redirect_uri: 'https://devpedroxz.github.io/auth0.github.io/2fa/2FA.HTML'
       });
     });
 
     logoutBtn.addEventListener('click', () => {
       auth0.logout({
-        returnTo: window.location.origin + '/2fa/2FA.HTML'
+        returnTo: 'https://devpedroxz.github.io/auth0.github.io/2fa/2FA.HTML'
       });
     });
 
